@@ -1,0 +1,17 @@
+<h1>New Book</h1>
+
+<%= form_with model: @book_list, url: books_path, local: true do |f| %>
+  <%= f.fields_for :books do | field_data | %>
+    <%= field_data.label :title %>
+    <%= field_data.text_field :title %>
+    <%= field_data.label :author %>
+    <%= field_data.text_field :author %>
+    <%= field_data.label :price %>
+    <%= field_data.number_field :price %>
+    <%= field_data.label :isbn %>
+    <%= field_data.text_field :isbn %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Back', books_path %>
